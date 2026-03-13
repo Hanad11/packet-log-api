@@ -1,0 +1,29 @@
+POST http://localhost:23500/packets
+Content-Type: application/json
+
+{
+  "sourceIp": "192.168.1.25",
+  "destinationIp": "8.8.8.8",
+  "protocol": "TCP",
+  "port": 443,
+  "payloadSize": 512,
+  "status": "accepted"
+}
+
+###
+
+GET http://localhost:23500/packets
+
+###
+
+POST http://localhost:23500/packets
+Content-Type: application/json
+
+{
+  "sourceIp": "10.0.1.25",
+  "destinationIp": "8.8.8.8",
+  "protocol": "UDP",
+  "port": 8080,
+  "payloadSize": 512,
+  "status": "accepted"
+}

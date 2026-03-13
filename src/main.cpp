@@ -1,15 +1,15 @@
-#include "../include/crow_all.h"
+#include "crow_all.h"
+#include "services/PacketService.hpp"
+#include "routes/PacketRoutes.hpp"
+#include "routes/HealthRoutes.hpp"
 
 int main()
 {
     crow::SimpleApp app;
+    PacketService packetService;
 
-    CROW_ROUTE(app, "/health")
-    ([]() {
-        crow::json::wvalue response;
-        response["status"] = "ok";
-        return response;
-    });
+    registerHealthRoutes(app);
+    registerPacketRoutes(app, packetService);
 
     app.port(23500).multithreaded().run();
 

@@ -13,11 +13,18 @@ find_package(Threads REQUIRED)
 
 include_directories(
     include
+    src
+    src/models
+    src/services
+    src/routes
     ${Boost_INCLUDE_DIRS}
 )
 
 add_executable(packet-log-api
     src/main.cpp
+    src/services/PacketService.cpp
+    src/routes/PacketRoutes.cpp
+    src/routes/HealthRoutes.cpp
 )
 
 target_link_libraries(packet-log-api
