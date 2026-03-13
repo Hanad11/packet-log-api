@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
-RUN mkdir build && cd build && cmake .. && make
+RUN cmake -S . -B build && cmake --build build
 
 EXPOSE 23500
 
